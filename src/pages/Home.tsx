@@ -1,84 +1,73 @@
-import { useEffect, useState } from "react";
-import Product from "../components/Product";
-import type { ProductInterface } from "../types/Product";
+import { Link } from 'react-router-dom';
+import { siteContent } from '../data/content';
 
-const Home = () => {
-  const [category, setCategory] = useState("Hamburguer");
-  const [products, setProducts] = useState<ProductInterface[]>([]);
-
-  const handleChangeCategory = (newCategory: string) => {
-    setCategory(newCategory);
-  };
-
-  const getCategoryClass = (categoryName: String) => {
-    const elementoSelecionado =
-      "md:text-md border-[#F2DAAC]flex flex h-7 w-24 cursor-pointer items-center justify-center rounded-md border-1 bg-[#F2DAAC] text-sm font-bold text-[#161410] md:h-10 md:w-32";
-    const elementoNaoSelecionado =
-      "md:text-md border-[#F2DAAC]flex flex h-7 w-24 cursor-pointer items-center justify-center rounded-md border-1 bg-[#161410] text-sm font-bold text-[#F2DAAC] hover:bg-[#F2DAAC] hover:text-[#161410] md:h-10 md:w-32";
-    if (category === categoryName) {
-      return elementoSelecionado;
-    } else {
-      return elementoNaoSelecionado;
-    }
-  };
-
-  const getProducts = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/get-products");
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      return;
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  const filteredProducts = products.filter((product) => {
-    return product.category === category;
-  });
+export default function Home() {
   return (
-    <div className="mx-auto w-full p-3 text-white md:w-[737px] md:px-0">
-      <div className="my-1 flex gap-2 py-4 md:my-3">
-        <div
-          className={getCategoryClass("Hamburguer")}
-          onClick={() => handleChangeCategory("Hamburguer")}
+    <div style={{ padding: '20px 0' }}>
+      {/* Quem Somos */}
+      <section style={{ marginBottom: '40px' }}>
+        <h1 style={{ color: '#0056b3' }}>{siteContent.quemSomos.titulo}</h1>
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+          {siteContent.quemSomos.descricao}
+        </p>
+        <a 
+          href={siteContent.header.formGeralLink} 
+          target="_blank" 
+          rel="noreferrer"
+          style={{
+            display: 'inline-block',
+            marginTop: '10px',
+            padding: '10px 20px',
+            backgroundColor: '#0056b3',
+            color: '#fff',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            fontWeight: 'bold'
+          }}
         >
-          Hamburguer
+          Formulário Geral de Interesses
+        </a>
+      </section>
+
+      {/* Seção Projetos */}
+      <section style={{ marginBottom: '40px' }}>
+        <h2>Projetos</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '15px' }}>
+          {siteContent.projetos.map((proj) => (
+            <div 
+              key={proj.id} 
+              style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '8px', backgroundColor: '#fff' }}
+            >
+              <h3>{proj.titulo}</h3>
+              <p>{proj.resumo}</p>
+              <Link 
+                to={`/projetos/${proj.id}`} 
+                style={{ color: '#0056b3', fontWeight: 'bold', textDecoration: 'none' }}
+              >
+                Ver detalhes e fotos →
+              </Link>
+            </div>
+          ))}
         </div>
-        <div
-          className={getCategoryClass("Bebida")}
-          onClick={() => handleChangeCategory("Bebida")}
-        >
-          Bebidas
+      </section>
+
+      {/* Seção Equipe */}
+      <section>
+        <h2>Equipe</h2>
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: '15px' }}>
+          {siteContent.equipe.map((membro, index) => (
+            <div key={index} style={{ textAlign: 'center', width: '120px' }}>
+              <img 
+                src={membro.foto} 
+                alt={membro.nome} 
+                style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover' }} 
+              />
+              <h4 style={{ margin: '10px 0 5px' }}>{membro.nome}</h4>
+              <span style={{ fontSize: '0.85rem', color: '#666' }}>{membro.cargo}</span>
+            </div>
+          ))}
         </div>
-        <div
-          className={getCategoryClass("Porção")}
-          onClick={() => handleChangeCategory("Porção")}
-        >
-          Porções
-        </div>
-      </div>
-      <p className="mt-2 mb-2 font-bold text-[#F2DAAC] uppercase">{category}</p>
-      <div className="flex flex-col gap-1 md:gap-3">
-        {filteredProducts.map((product) => (
-          <Product
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            img={product.img}
-            key={product.id}
-            category={product.category}
-            setProducts={setProducts}
-          />
-        ))}
-        {filteredProducts.length === 0 && <p>Não há produtos dessa categoria</p>}
-      </div>
+      </section>
     </div>
   );
-};
-
-export default Home;
+}
