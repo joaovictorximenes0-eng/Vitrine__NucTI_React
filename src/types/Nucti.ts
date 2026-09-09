@@ -5,14 +5,15 @@ export interface Projeto {
   descricaoCompleta: string;
   fotos: string[];
   formLink: string;
+  membrosIds?: string[]; // IDs dos membros vinculados ao projeto
 }
 
 export interface MembroEquipe {
+  id: string; // Adicionado ID único para facilitar a filtragem
   nome: string;
   cargo: string;
   foto: string;
-  linkedin?: string;
-  instagram?: string
+  redesSociais?: RedesSociais;
 }
 
 export interface RedesSociais {

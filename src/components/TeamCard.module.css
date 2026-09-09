@@ -114,3 +114,61 @@
   font-size: 0.875rem;
   color: #64748b;
 }
+
+/* --- REDES SOCIAIS (AGORA SEMPRE VISÍVEIS) --- */
+.redesSociais {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  /* Removido o opacity: 0 e translateY para ficar fixo */
+}
+
+/* O resto de .icone continua o mesmo! */
+
+/* --- NOVO BOTÃO DE FILTRO --- */
+.filterBtn {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.filterIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.filterBtn:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.filterBtnActive {
+  background-color: #0056b3;
+  color: #ffffff;
+  border-color: #0056b3;
+}
+
+.filterBtnActive:hover {
+  background-color: #004494;
+  color: #ffffff;
+}
+
+/* Borda de destaque no card inteiro se o filtro estiver ativo */
+.cardActive {
+  outline: 2px solid #0056b3;
+}

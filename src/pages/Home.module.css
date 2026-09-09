@@ -56,3 +56,125 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
+
+/* --- HEADER DOS PROJETOS --- */
+.headerProjetos {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.filterHint {
+  color: #0056b3;
+  background: #eff6ff;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* --- CARROSSEL INFINITO --- */
+.carouselContainer {
+  width: 100%;
+  overflow: hidden; /* Esconde o que passa das bordas da tela */
+  position: relative;
+  padding: 20px 0;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  /* Animação roda por 30s direto de forma linear, infinitamente */
+  animation: scrollInfinite 30s linear infinite;
+}
+
+/* Quando o usuário passa o mouse, o carrossel pausa! */
+.carouselContainer:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+.carouselItem {
+  width: 350px; /* Largura fixa para os cards no carrossel */
+  transition: all 0.4s ease;
+}
+
+/* --- EFEITO DIMMED (APAGADO) --- */
+.dimmed {
+  opacity: 0.3;
+  filter: grayscale(80%);
+  transform: scale(0.95); /* Dá uma leve encolhida */
+  pointer-events: none; /* Impede clique nos cards apagados */
+}
+
+/* --- ANIMAÇÃO CSS DO CARROSSEL --- */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translada 50% da track + metade do gap (12px) para loop perfeito */
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+/* --- SEÇÃO DE PROJETOS --- */
+.headerProjetos {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.filterHint {
+  color: #0056b3;
+  background: #eff6ff;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* --- CARROSSEL FULL WIDTH (LARGURA TOTAL DA TELA) --- */
+.carouselContainer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 24px 0;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: scrollInfinite 35s linear infinite;
+}
+
+/* Pausa o movimento ao passar o mouse */
+.carouselContainer:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+.carouselItem {
+  width: 380px; /* Ajuste o tamanho padrão dos cards aqui se quiser */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- EFEITO DIMMED (DESFOCADO/APAGADO) --- */
+.dimmed {
+  opacity: 0.25;
+  filter: grayscale(100%);
+  transform: scale(0.92);
+  pointer-events: none;
+}
+
+/* --- ANIMAÇÃO INFINITA --- */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 16px));
+  }
+}

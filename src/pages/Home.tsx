@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import { siteContent } from '../data/content';
-import type { Projeto, MembroEquipe } from '../types/Nucti';
-import ProjectCard from '../components/ProjectCard';
+import type { MembroEquipe } from '../types/Nucti';
 import TeamCard from '../components/TeamCard';
+import ProjectCarousel from '../components/ProjectCarousel';
 import styles from './Home.module.css';
 
 export default function Home() {
+  const [membroFiltro, setMembroFiltro] = useState<string | null>(null);
+
+  const handleFilterClick = (membroId: string) => {
+    if (membroFiltro === membroId) {
+      setMembroFiltro(null);
+    } else {
+      setMembroFiltro(membroId);
+      document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
-      {/* Quem Somos */}
+      {/* Seção Quem Somos */}
       <section id="quemsomos" className={`${styles.section} ${styles.hero}`}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{siteContent.quemSomos.titulo}</h1>
@@ -18,22 +30,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projetos */}
+      {/* Seção Projetos com Carrossel Avançado */}
       <section id="projetos" className={styles.section}>
-        <h2 className={styles.sectionTitle}>Projetos em Destaque</h2>
-        <div className={styles.projectsGrid}>
-          {siteContent.projetos.map((proj: Projeto) => (
-            <ProjectCard key={proj.id} projeto={proj} />
-          ))}
+        <div className={styles.headerProjetos}>
+          <h2 className={styles.sectionTitle}>Projetos em Destaque</h2>
+          {membroFiltro && (
+            <p className={styles.filterHint}>
+              Destacando projetos de <strong>{siteContent.equipe.find(m => m.id === membroFiltro)?.nome}</strong>
+            </p>
+          )}
         </div>
+
+        {/* Novo Carrossel com Física de Travamento e Aceleração */}
+        <ProjectCarousel 
+          projetos={siteContent.projetos} 
+          membroFiltro={membroFiltro} 
+        />
       </section>
 
-      {/* Equipe */}
+      {/* Seção Equipe */}
       <section id="equipe" className={styles.section}>
         <h2 className={styles.sectionTitle}>Nossa Equipe</h2>
         <div className={styles.teamGrid}>
-          {siteContent.equipe.map((membro: MembroEquipe, index: number) => (
-            <TeamCard key={index} membro={membro} />
+          {siteContent.equipe.map((membro: MembroEquipe) => (
+            <TeamCard 
+              key={membro.id} 
+              membro={membro} 
+              isFilterActive={membroFiltro === membro.id}
+              onFilterClick={() => handleFilterClick(membro.id)}
+            />
           ))}
         </div>
       </section>
