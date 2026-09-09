@@ -8,6 +8,7 @@
   border: 1px solid #e2e8f0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .card:hover {
@@ -24,14 +25,70 @@
   border: 3px solid #0056b3;
 }
 
+.nomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
 .name {
   margin: 0 0 6px 0;
   font-size: 1.1rem;
   color: #1e293b;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .role {
   font-size: 0.875rem;
   color: #64748b;
+}
+
+/* === A FIRULA DAS REDES SOCIAIS === */
+.redesSociais {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  
+  /* Escondido e levemente deslocado */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  
+  /* Animação fluída de deslize */
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Quando passa o mouse no container do nome */
+.nomeContainer:hover .name {
+  color: #0056b3;
+}
+
+.nomeContainer:hover .redesSociais {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #f1f5f9;
+  color: #0056b3;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.icone:hover {
+  transform: scale(1.15) translateY(-2px);
+  background-color: #0056b3;
+  color: #ffffff;
 }
