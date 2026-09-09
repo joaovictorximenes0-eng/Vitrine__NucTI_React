@@ -8,12 +8,11 @@ interface TeamCardProps {
 export default function TeamCard({ membro }: TeamCardProps) {
   return (
     <div className={styles.card}>
-      <img src={membro.foto} alt={membro.nome} className={styles.avatar} />
-      
-      <div className={styles.nomeContainer}>
-        <h4 className={styles.name}>{membro.nome}</h4>
-        
-        {/* Redes sociais que aparecem no hover */}
+      {/* Área superior (Tela em branco / Foto) */}
+      <div className={styles.topArea}>
+        <img src={membro.foto} alt={membro.nome} className={styles.avatar} />
+
+        {/* Círculos brancos das redes sociais sobre a foto */}
         {membro.redesSociais && (
           <div className={styles.redesSociais}>
             {membro.redesSociais.linkedin && (
@@ -35,7 +34,11 @@ export default function TeamCard({ membro }: TeamCardProps) {
         )}
       </div>
 
-      <span className={styles.role}>{membro.cargo}</span>
+      {/* Área inferior (Texto que arria no hover) */}
+      <div className={styles.textContainer}>
+        <h4 className={styles.name}>{membro.nome}</h4>
+        <span className={styles.role}>{membro.cargo}</span>
+      </div>
     </div>
   );
 }

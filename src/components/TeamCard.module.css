@@ -1,94 +1,116 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
+  width: 100%;
+  height: 320px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden; /* Mantém a foto expandida restrita ao card */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.12);
 }
 
+/* --- ÁREA DO TOPO (TELA EM BRANCO) --- */
+.topArea {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: #f8fafc; /* Cor da tela em branco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOTO: Começa redonda e centralizada */
 .avatar {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 16px;
-  border: 3px solid #0056b3;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nomeContainer {
+/* NO HOVER: Foto se expande ocupando toda a tela de cima */
+.card:hover .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* --- REDES SOCIAIS (CÍRCULOS BRANCOS) --- */
+.redesSociais {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.3s ease 0.1s; /* Pequeno atraso para surgir suave */
+}
+
+.card:hover .redesSociais {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ícone com Círculo Branco Fixo */
+.icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background-color: #ffffff; /* Círculo Branco */
+  color: #0056b3;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.icone:hover {
+  transform: scale(1.15);
+  background-color: #f1f5f9;
+}
+
+/* --- ÁREA DO TEXTO --- */
+.textContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  position: relative;
+  justify-content: center;
+  padding: 16px;
+  background-color: #ffffff;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* NO HOVER: O texto arria para baixo */
+.card:hover .textContainer {
+  transform: translateY(15px);
 }
 
 .name {
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   font-size: 1.1rem;
   color: #1e293b;
   font-weight: 600;
-  transition: color 0.2s ease;
 }
 
 .role {
   font-size: 0.875rem;
   color: #64748b;
-}
-
-/* === A FIRULA DAS REDES SOCIAIS === */
-.redesSociais {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  
-  /* Escondido e levemente deslocado */
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  
-  /* Animação fluída de deslize */
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Quando passa o mouse no container do nome */
-.nomeContainer:hover .name {
-  color: #0056b3;
-}
-
-.nomeContainer:hover .redesSociais {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.icone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: #f1f5f9;
-  color: #0056b3;
-  text-decoration: none;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: bold;
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.icone:hover {
-  transform: scale(1.15) translateY(-2px);
-  background-color: #0056b3;
-  color: #ffffff;
 }
