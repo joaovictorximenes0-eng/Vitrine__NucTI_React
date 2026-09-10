@@ -8,6 +8,20 @@ import styles from './Home.module.css';
 export default function Home() {
   const [membroFiltro, setMembroFiltro] = useState<string | null>(null);
 
+  // Unifica as duas listas apenas para localizar o nome no filtro sem erros de TypeScript
+  const todosMembros: MembroEquipe[] = [
+    ...siteContent.professores,
+    ...siteContent.alunos,
+  ];
+
+  // Ordenação alfabética por nome
+  const professoresOrdenados = [...siteContent.professores].sort((a, b) =>
+    a.nome.localeCompare(b.nome)
+  );
+  const alunosOrdenados = [...siteContent.alunos].sort((a, b) =>
+    a.nome.localeCompare(b.nome)
+  );
+
   const handleFilterClick = (membroId: string) => {
     if (membroFiltro === membroId) {
       setMembroFiltro(null);
@@ -36,12 +50,12 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Projetos em Destaque</h2>
           {membroFiltro && (
             <p className={styles.filterHint}>
-              Destacando projetos de <strong>{siteContent.equipe.find(m => m.id === membroFiltro)?.nome}</strong>
+              Destacando projetos de <strong>{todosMembros.find(m => m.id === membroFiltro)?.nome}</strong>
             </p>
           )}
         </div>
 
-        {/* Novo Carrossel com Física de Travamento e Aceleração */}
+        {/* Carrossel com Física de Travamento e Aceleração */}
         <ProjectCarousel 
           projetos={siteContent.projetos} 
           membroFiltro={membroFiltro} 
@@ -51,15 +65,35 @@ export default function Home() {
       {/* Seção Equipe */}
       <section id="equipe" className={styles.section}>
         <h2 className={styles.sectionTitle}>Nossa Equipe</h2>
-        <div className={styles.teamGrid}>
-          {siteContent.equipe.map((membro: MembroEquipe) => (
-            <TeamCard 
-              key={membro.id} 
-              membro={membro} 
-              isFilterActive={membroFiltro === membro.id}
-              onFilterClick={() => handleFilterClick(membro.id)}
-            />
-          ))}
+
+        {/* Subseção Professores */}
+        <div className={styles.groupBlock}>
+          <h3 className={styles.subTitle}>Professores</h3>
+          <div className={styles.teamGrid}>
+            {professoresOrdenados.map((membro: MembroEquipe) => (
+              <TeamCard 
+                key={membro.id} 
+                membro={membro} 
+                isFilterActive={membroFiltro === membro.id}
+                onFilterClick={() => handleFilterClick(membro.id)}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Subseção Alunos */}
+        <div className={styles.groupBlock}>
+          <h3 className={styles.subTitle}>Alunos</h3>
+          <div className={styles.teamGrid}>
+            {alunosOrdenados.map((membro: MembroEquipe) => (
+              <TeamCard 
+                key={membro.id} 
+                membro={membro} 
+                isFilterActive={membroFiltro === membro.id}
+                onFilterClick={() => handleFilterClick(membro.id)}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </div>
