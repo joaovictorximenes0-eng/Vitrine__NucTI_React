@@ -18,13 +18,19 @@ export default function TeamCard({ membro, isFilterActive, onFilterClick }: Team
         {membro.redesSociais && (
           <div className={styles.redesSociais}>
             {membro.redesSociais.linkedin && (
-              <a href={membro.redesSociais.linkedin} target="_blank" rel="noreferrer" className={styles.icone} title="LinkedIn">in</a>
+              <a href={membro.redesSociais.linkedin} target="_blank" rel="noreferrer" className={styles.icone} title="LinkedIn" id="linkedin-icon">
+                <img src="./src/imgs/social-icons/square-linkedin-brands-solid-full.svg" alt="Rede Social LinkedIn" />
+              </a>
             )}
             {membro.redesSociais.github && (
-              <a href={membro.redesSociais.github} target="_blank" rel="noreferrer" className={styles.icone} title="GitHub">gh</a>
+              <a href={membro.redesSociais.github} target="_blank" rel="noreferrer" className={styles.icone} title="GitHub">
+                <img src="./src/imgs/social-icons/github-brands-solid-full.svg" alt="Rede Social Github" />
+              </a>
             )}
             {membro.redesSociais.instagram && (
-              <a href={membro.redesSociais.instagram} target="_blank" rel="noreferrer" className={styles.icone} title="Instagram">ig</a>
+              <a href={membro.redesSociais.instagram} target="_blank" rel="noreferrer" className={styles.icone} title="Instagram">
+                 <img src="./src/imgs/social-icons/instagram-brands-solid-full.svg" alt="Rede Social Instagram" />
+              </a>
             )}
           </div>
         )}

@@ -87,6 +87,9 @@
   background-color: #f1f5f9;
 }
 
+#linkedin-icon {
+  width: 50%;
+}
 /* --- ÁREA DO TEXTO --- */
 .textContainer {
   display: flex;
