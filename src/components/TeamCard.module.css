@@ -181,6 +181,7 @@
 @media (max-width: 510px){
   .card {
     height: 380px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
   }
   .redesSociais{
     display: none;
