@@ -7,6 +7,33 @@ interface TeamCardProps {
   onFilterClick: () => void;
 }
 
+interface SocialDivProps {
+  member: MembroEquipe;
+  mode: 'normal' | 'mobile'
+}
+
+function SocialDiv({member, mode} : SocialDivProps){
+  return (
+    <div className={mode == "mobile" ? styles.redesSociais__mobile : styles.redesSociais}>
+      {member.redesSociais?.linkedin && (
+        <a href={member.redesSociais.linkedin} target="_blank" rel="noreferrer" className={styles.icone} title="LinkedIn" id="linkedin-icon">
+          <img src="./src/imgs/social-icons/square-linkedin-brands-solid-full.svg" alt="Rede Social LinkedIn" />
+        </a>
+      )}
+      {member.redesSociais?.github && (
+        <a href={member.redesSociais.github} target="_blank" rel="noreferrer" className={styles.icone} title="GitHub">
+          <img src="./src/imgs/social-icons/github-brands-solid-full.svg" alt="Rede Social Github" />
+        </a>
+      )}
+      {member.redesSociais?.instagram && (
+        <a href={member.redesSociais.instagram} target="_blank" rel="noreferrer" className={styles.icone} title="Instagram">
+            <img src="./src/imgs/social-icons/instagram-brands-solid-full.svg" alt="Rede Social Instagram" />
+        </a>
+      )}
+    </div>
+  )
+}
+
 export default function TeamCard({ membro, isFilterActive, onFilterClick }: TeamCardProps) {
   return (
     <div className={`${styles.card} ${isFilterActive ? styles.cardActive : ''}`}>
@@ -16,23 +43,7 @@ export default function TeamCard({ membro, isFilterActive, onFilterClick }: Team
 
         {/* Redes Sociais FIXAS (sempre visíveis) */}
         {membro.redesSociais && (
-          <div className={styles.redesSociais}>
-            {membro.redesSociais.linkedin && (
-              <a href={membro.redesSociais.linkedin} target="_blank" rel="noreferrer" className={styles.icone} title="LinkedIn" id="linkedin-icon">
-                <img src="./src/imgs/social-icons/square-linkedin-brands-solid-full.svg" alt="Rede Social LinkedIn" />
-              </a>
-            )}
-            {membro.redesSociais.github && (
-              <a href={membro.redesSociais.github} target="_blank" rel="noreferrer" className={styles.icone} title="GitHub">
-                <img src="./src/imgs/social-icons/github-brands-solid-full.svg" alt="Rede Social Github" />
-              </a>
-            )}
-            {membro.redesSociais.instagram && (
-              <a href={membro.redesSociais.instagram} target="_blank" rel="noreferrer" className={styles.icone} title="Instagram">
-                 <img src="./src/imgs/social-icons/instagram-brands-solid-full.svg" alt="Rede Social Instagram" />
-              </a>
-            )}
-          </div>
+          <SocialDiv member={membro} mode='normal'/>
         )}
       </div>
 
@@ -52,7 +63,11 @@ export default function TeamCard({ membro, isFilterActive, onFilterClick }: Team
           </svg>
           {isFilterActive ? 'Remover Filtro' : 'Ver Projetos'}
         </button>
+        <div>
+          <SocialDiv member={membro} mode='mobile'/>
+        </div>
       </div>
+
     </div>
   );
 }

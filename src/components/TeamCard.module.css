@@ -128,7 +128,9 @@
   z-index: 10;
   /* Removido o opacity: 0 e translateY para ficar fixo */
 }
-
+.redesSociais__mobile {
+  display: none;
+}
 /* O resto de .icone continua o mesmo! */
 
 /* --- NOVO BOTÃO DE FILTRO --- */
@@ -174,4 +176,22 @@
 /* Borda de destaque no card inteiro se o filtro estiver ativo */
 .cardActive {
   outline: 2px solid #0056b3;
+}
+
+@media (max-width: 510px){
+  .card {
+    height: 380px;
+  }
+  .redesSociais{
+    display: none;
+  }
+  .redesSociais__mobile {
+    transform: scale(1.35);
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    z-index: 10;
+  }
 }
