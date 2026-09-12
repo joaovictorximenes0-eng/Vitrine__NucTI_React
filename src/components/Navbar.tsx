@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
 import styles from './Navbar.module.css';
+import MenuHamburguer from './MenuHambur';
+import menuIcon from '../imgs/menu-icons/bars-solid-full.svg'
 
 const navLinks = [
   { id: 'quemsomos', label: 'Quem somos' },
@@ -39,34 +41,41 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <header className={styles.header}>
-      <Link to="/" className={styles.logo}>
-        {siteContent.header.titulo}
-      </Link>
+      <div className={styles.header_nav}>
+        <Link to="/" className={styles.logo}>
+          {siteContent.header.titulo}
+        </Link>
 
-      <nav className={styles.nav}>
-        {navLinks.map((link) => {
-          const isActive = activeSection === link.id;
-          return (
-            <a
+        <nav className={styles.nav}>
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
               key={link.id}
               href={`/#${link.id}`}
               className={`${styles.link} ${isActive ? styles.linkActive : ''}`}
-            >
-              {link.label}
-            </a>
-          );
-        })}
-      </nav>
+              >
+                {link.label}
+              </a>
+            );
+          })}
+        </nav>
 
-      <a
-        href={siteContent.header.formGeralLink}
-        target="_blank"
-        rel="noreferrer"
-        className={styles.cta}
-      >
-        Inscrição de Interesses
-      </a>
+        <a
+          href={siteContent.header.formGeralLink}
+          target="_blank"
+          rel="noreferrer"
+          className={styles.cta}
+          >
+          Inscrição de Interesses
+        </a>
+        <img className={styles.menu_icon} src={menuIcon} alt="Menu"/>
+      </div>
+      <MenuHamburguer/>
     </header>
+    <div className={styles.overlay_menu}/>
+    </>
   );
 }

@@ -1,9 +1,28 @@
-.header {
+.header{
   position: sticky;
-  top: 0;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 1000;
+  width: 100%;
+}
+
+.overlay_menu{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100dvw;
+  height: 200dvh;
+  background-color: rgba(164, 177, 250, 0.445);
+}
+
+.header_nav {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  z-index: 3;
   align-items: center;
   padding: 16px 24px;
   background-color: rgba(255, 255, 255, 0.95); /* Fundo branco levemente translúcido */
@@ -67,4 +86,19 @@
   color: #0056b3;
   font-weight: 700;
   background-color: #eff6ff; /* Fundo azul bem claro */
+}
+.menu_icon{
+    width: 10%;
+    display: none;
+}
+@media (max-width: 700px) {
+  .link {
+    display: none;
+  }
+  .menu_icon{
+    display: inline-block;
+  }
+  .cta {
+    display: none;
+  }
 }
