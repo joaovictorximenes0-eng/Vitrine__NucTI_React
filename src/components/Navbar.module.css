@@ -64,7 +64,9 @@
   font-weight: bold;
   transition: background-color 0.2s;
 }
-
+.cta_menu {
+  display: none;
+}
 .cta:hover {
   background-color: #004494;
 }
@@ -89,31 +91,46 @@
   background-color: #eff6ff; /* Fundo azul bem claro */
 }
 .menu_btn{
-  width: 40px;
+  width: 45px;
   display: none;
   background: none;
   border: none;
-  display: none;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  padding: 10px;
 }
 .menu_icon{
   width: 100%;
 }
+
 .menu_btn:hover{
   cursor: pointer;
+}
+.menu_btn_act{
+  display: none;
+  background-color: #217ee286;
 }
 @media (max-width: 760px) {
   .link {
     display: none;
   }
-  .menu_btn{
+  .menu_btn, .menu_btn_act{
     display: flex;
   }
   .cta {
     display: none;
   }
-
+  .cta_menu {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: .8em;
+  }
 }
 @media (min-width: 760px) {
   .overlay_menu{

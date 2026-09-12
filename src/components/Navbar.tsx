@@ -10,6 +10,32 @@ const navLinks = [
   { id: 'projetos', label: 'Projetos' },
   { id: 'equipe', label: 'Equipe' },
 ];
+type SubscribeBtnProps = {
+  mode: 'nav' | 'menu'
+}
+export function SubscribeBtn({mode} : SubscribeBtnProps) {
+  return (
+    <a
+      href={siteContent.header.formGeralLink}
+      target="_blank"
+      rel="noreferrer"
+      className={mode == 'nav' ? styles.cta :  styles.cta_menu }
+      >
+      Inscrição de Interesses
+    </a>
+  )
+}
+
+type TitileNucTiProps = {
+  onClick?: () => void;
+}
+export function TitleNucTi({onClick} : TitileNucTiProps) {
+  return (
+    <Link to="/" className={styles.logo} onClick={onClick}>
+      {siteContent.header.titulo}
+    </Link>
+  )
+}
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>('quemsomos');
@@ -49,9 +75,7 @@ export default function Navbar() {
     <>
     <header className={styles.header}>
       <div className={styles.header_nav}>
-        <Link to="/" className={styles.logo}>
-          {siteContent.header.titulo}
-        </Link>
+        <TitleNucTi/>
 
         <nav className={styles.nav}>
           {navLinks.map((link) => {
@@ -68,15 +92,9 @@ export default function Navbar() {
           })}
         </nav>
 
-        <a
-          href={siteContent.header.formGeralLink}
-          target="_blank"
-          rel="noreferrer"
-          className={styles.cta}
-          >
-          Inscrição de Interesses
-        </a>
-        <button className={styles.menu_btn} onClick={menu_click}>
+        <SubscribeBtn mode='nav'/>
+
+        <button className={`${styles.menu_btn} ${menuOpen ? styles.menu_btn_act : ''}`} onClick={menu_click}>
           <img className={styles.menu_icon} src={menuIcon} alt="Menu"/>
         </button>
       </div>
@@ -85,7 +103,7 @@ export default function Navbar() {
       )}
     </header>
     {menuOpen && (
-      <div className={styles.overlay_menu}/>
+      <div className={styles.overlay_menu} onClick={() => setMenuOpen(false)}/>
     )}
     </>
   );

@@ -50,16 +50,6 @@
 }
 
 @media (max-width: 760px) {
-    .cta {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #0056b3;
-        color: #fff;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: .8em;
-    }
     .menu {
         display: flex;
     }
