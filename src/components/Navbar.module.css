@@ -19,6 +19,7 @@
 }
 
 .header_nav {
+  top: -10px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -82,23 +83,40 @@
 }
 
 /* Estado Ativo: Destaque visual */
-.linkActive {
+.linkActive { 
   color: #0056b3;
   font-weight: 700;
   background-color: #eff6ff; /* Fundo azul bem claro */
 }
-.menu_icon{
-    width: 10%;
-    display: none;
+.menu_btn{
+  width: 40px;
+  display: none;
+  background: none;
+  border: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 700px) {
+.menu_icon{
+  width: 100%;
+}
+.menu_btn:hover{
+  cursor: pointer;
+}
+@media (max-width: 760px) {
   .link {
     display: none;
   }
-  .menu_icon{
-    display: inline-block;
+  .menu_btn{
+    display: flex;
   }
   .cta {
+    display: none;
+  }
+
+}
+@media (min-width: 760px) {
+  .overlay_menu{
     display: none;
   }
 }

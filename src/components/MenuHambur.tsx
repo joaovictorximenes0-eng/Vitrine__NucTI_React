@@ -12,11 +12,15 @@ const navLinks = [
   { id: 'equipe', label: 'Equipe', icon: groupIcon},
 ];
 
-export default function MenuHamburguer() {
+type MenuHamburguerProps = {
+    onClose: () => void;
+};
+
+export default function MenuHamburguer({ onClose }: MenuHamburguerProps) {
     return (
         <>
         <div className={styles.menu}>
-            <Link to="/" className={styles_nav.logo}>
+            <Link to="/" className={styles_nav.logo} onClick={onClose}>
                 {siteContent.header.titulo}
             </Link>
 
@@ -27,6 +31,7 @@ export default function MenuHamburguer() {
                         key={link.id}
                         href={`/#${link.id}`}
                         className={`${styles.link}`}
+                        onClick={onClose}
                         >
                     <img className={styles.icon} src={link.icon} alt={link.id}/>
                     {link.label}
@@ -38,7 +43,8 @@ export default function MenuHamburguer() {
             href={siteContent.header.formGeralLink}
             target="_blank"
             rel="noreferrer"
-            className={styles_nav.cta}
+            className={styles.cta}
+            onClick={onClose}
             >
             Inscrição de Interesses
             </a>

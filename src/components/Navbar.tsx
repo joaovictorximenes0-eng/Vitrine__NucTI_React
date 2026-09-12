@@ -13,6 +13,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>('quemsomos');
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
 
   useEffect(() => {
     const sectionIds = navLinks.map((link) => link.id);
@@ -39,6 +40,10 @@ export default function Navbar() {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
+
+  function menu_click(){
+    setMenuOpen(!menuOpen)
+  }
 
   return (
     <>
@@ -71,11 +76,17 @@ export default function Navbar() {
           >
           Inscrição de Interesses
         </a>
-        <img className={styles.menu_icon} src={menuIcon} alt="Menu"/>
+        <button className={styles.menu_btn} onClick={menu_click}>
+          <img className={styles.menu_icon} src={menuIcon} alt="Menu"/>
+        </button>
       </div>
-      <MenuHamburguer/>
+      {menuOpen &&(
+        <MenuHamburguer onClose={() => setMenuOpen(false)} />
+      )}
     </header>
-    <div className={styles.overlay_menu}/>
+    {menuOpen && (
+      <div className={styles.overlay_menu}/>
+    )}
     </>
   );
 }
