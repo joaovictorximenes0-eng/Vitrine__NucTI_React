@@ -33,4 +33,28 @@ export const alunos: MembroEquipe[] = [
     foto: "https://placehold.co/200x200/7c3aed/ffffff?text=MC",
     redesSociais: { linkedin: "https://linkedin.com", instagram: "https://instagram.com" },
   },
+  {
+    id: "joao-victor",
+    nome: "João Victor",
+    cargo: "Desenvolvedor Full-Stack",
+    categoria: "aluno",
+    foto: "https://placehold.co/200x200/7c3aed/ffffff?text=EA",
+    redesSociais: { linkedin:"https://www.linkedin.com/in/joao-victor-xg", github:"https://github.com/joaovictorximenes0-eng" , instagram:"https://www.instagram.com/ericke2008/" },
+  },
+  {
+    id: "erick-alves",
+    nome: "Erick Alves",
+    cargo: "Desenvolvedor voluntário",
+    categoria: "aluno",
+    foto: "https://placehold.co/200x200/7c3aed/ffffff?text=EA",
+    redesSociais: { linkedin:"https://www.linkedin.com/in/erick-alves-dos-santos-814506362", github:"https://github.com/erickalvesflk" , instagram:"https://www.instagram.com/ericke2008/" },
+  },
+  {
+    id: "matheus-evangelista",
+    nome: "Matheus Evangelista",
+    cargo: "Desenvolvedor voluntário",
+    categoria: "aluno",
+    foto: "https://placehold.co/200x200/7c3aed/ffffff?text=ME",
+    redesSociais: { linkedin: "https://linkedin.com", instagram: "https://instagram.com" },
+  },
 ];
