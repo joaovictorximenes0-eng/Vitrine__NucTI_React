@@ -28,4 +28,22 @@ export const projetos: Projeto[] = [
     formLink: "https://forms.google.com",
     membrosIds: ["ricardo-silva", "ana-souza", "helena-castro"],
   },
+  {
+    id: "tech-competi",
+    titulo: "CompetiTech",
+    resumo: "Ensino de Robótica com Robôs de Competição",
+    descricaoCompleta: "Em desenvolvimento...",
+    fotos: ["https://placehold.co/800x500/475569/ffffff?text=Detecção+OpenCV"],
+    formLink: "https://forms.google.com",
+    membrosIds: ["maximiano-correia"],
+  },
+  {
+    id: "saber-explora",
+    titulo: "Explorando Saber",
+    resumo: "desenvolvimento de plataforma de ensino para alunos do Ensino Médio",
+    descricaoCompleta: "...",
+    fotos: ["https://placehold.co/800x500/475569/ffffff?text=Detecção+OpenCV"],
+    formLink: "https://forms.google.com",
+    membrosIds: ["adriana-sicsu", "carlos-sicsu"],
+  },
 ];
