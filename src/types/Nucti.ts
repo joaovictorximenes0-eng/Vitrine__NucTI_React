@@ -15,6 +15,15 @@ export interface MembroEquipe {
   redesSociais?: RedesSociais;
 }
 
+export interface MembroEquipeSemId {
+  nome: string;
+  cargo: string;
+  categoria: CategoriaMembro;
+  foto: string;
+  redesSociais?: RedesSociais;
+}
+
+
 export interface Projeto {
   id: string;
   titulo: string;
