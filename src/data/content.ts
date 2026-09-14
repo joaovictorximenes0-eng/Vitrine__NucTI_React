@@ -11,7 +11,7 @@ export const siteContent = {
     titulo: "Quem somos?",
     descricao:
       "O NucTI é o Núcleo de Tecnologia da Informação da faculdade. Atuamos na intersecção entre ensino, pesquisa e extensão, desenvolvendo soluções tecnológicas reais para o campus e a comunidade.",
-    imagem: "https://placehold.co/600x400/0056b3/ffffff?text=NucTI+Lab",
+    imagem: "https://www.uerjzo.uerj.br/img/biblioteca-uerz-zo-1280-720.jpg",
   },
   projetos,
   professores,
