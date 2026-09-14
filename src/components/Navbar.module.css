@@ -136,4 +136,21 @@
   .overlay_menu{
     display: none;
   }
+
+/* Logo NucTI*/
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0056b3;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.logoImage {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
