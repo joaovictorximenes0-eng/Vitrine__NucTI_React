@@ -1,8 +1,8 @@
-import type { MembroEquipe } from '../types/Nucti';
+import type { MembroEquipe, MembroEquipeSemId } from '../types/Nucti';
+import { addIdMember } from './uuid5'
 
-export const alunos: MembroEquipe[] = [
+export const alunos_sem_id: MembroEquipeSemId[] = [
   {
-    id: "ana-souza",
     nome: "Ana Beatriz Souza",
     cargo: "Desenvolvedora Frontend",
     categoria: "aluno",
@@ -10,7 +10,6 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { linkedin: "https://linkedin.com", github: "https://github.com" },
   },
   {
-    id: "carlos-eduardo",
     nome: "Carlos Eduardo",
     cargo: "Pesquisador IoT",
     categoria: "aluno",
@@ -18,7 +17,6 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { github: "https://github.com" },
   },
   {
-    id: "gabriel-martins",
     nome: "Gabriel Martins",
     cargo: "Desenvolvedor Firmware",
     categoria: "aluno",
@@ -26,7 +24,6 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { github: "https://github.com" },
   },
   {
-    id: "mariana-costa",
     nome: "Mariana Costa",
     cargo: "UX/UI Designer",
     categoria: "aluno",
@@ -34,15 +31,13 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { linkedin: "https://linkedin.com", instagram: "https://instagram.com" },
   },
   {
-    id: "joao-victor",
     nome: "João Victor",
     cargo: "Desenvolvedor Full-Stack",
     categoria: "aluno",
-    foto: "https://placehold.co/200x200/7c3aed/ffffff?text=EA",
+    foto: "https://placehold.co/200x200/7c3aed/ffffff?text=JC",
     redesSociais: { linkedin:"https://www.linkedin.com/in/joao-victor-xg", github:"https://github.com/joaovictorximenes0-eng" , instagram:"https://www.instagram.com/ericke2008/" },
   },
   {
-    id: "erick-alves",
     nome: "Erick Alves",
     cargo: "Desenvolvedor voluntário",
     categoria: "aluno",
@@ -50,7 +45,6 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { linkedin:"https://www.linkedin.com/in/erick-alves-dos-santos-814506362", github:"https://github.com/erickalvesflk" , instagram:"https://www.instagram.com/ericke2008/" },
   },
   {
-    id: "matheus-evangelista",
     nome: "Matheus Evangelista",
     cargo: "Desenvolvedor voluntário",
     categoria: "aluno",
@@ -58,3 +52,5 @@ export const alunos: MembroEquipe[] = [
     redesSociais: { linkedin: "https://linkedin.com", instagram: "https://instagram.com" },
   },
 ];
+
+export const alunos: MembroEquipe[] = addIdMember(alunos_sem_id)
