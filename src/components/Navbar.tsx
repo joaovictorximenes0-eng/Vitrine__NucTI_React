@@ -4,6 +4,8 @@ import { siteContent } from '../data/content';
 import styles from './Navbar.module.css';
 import MenuHamburguer from './MenuHambur';
 import menuIcon from '../imgs/menu-icons/bars-solid-full.svg'
+import nuctiLogo from '../imgs/nucti-logo.jpeg';
+
 
 const navLinks = [
   { id: 'quemsomos', label: 'Quem somos' },
@@ -91,6 +93,30 @@ export default function Navbar() {
             );
           })}
         </nav>
+  return (
+    
+    <header className={styles.header}>
+       <Link to="/" className={styles.logo}>
+  {siteContent.header.titulo}
+  <img src={nuctiLogo} alt="Logo NucTI" className={styles.logoImage} />
+</Link>
+
+      <nav className={styles.nav}>
+        {navLinks.map((link) => {
+          const isActive = activeSection === link.id;
+          return (
+            <a
+            
+              key={link.id}
+              href={`/#${link.id}`}
+              className={`${styles.link} ${isActive ? styles.linkActive : ''}`}
+            >
+              {link.label}
+            </a>
+            
+          );
+        })}
+      </nav>
 
         <SubscribeBtn mode='nav'/>
 
