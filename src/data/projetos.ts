@@ -26,21 +26,25 @@ const projetos_sem_id: ProjetoSemId[] = [
     titulo: "CompetiTech",
     resumo: "Ensino de Robótica com Robôs de Competição",
     descricaoCompleta: "Em desenvolvimento...",
-    fotos: [`https://placehold.co/800x500/${get_project_color('CT')}/ffffff?text=CompetiTech`],
+    fotos: [
+      'https://mittechreview.com.br/wp-content/uploads/2022/03/trbr_artigo_banner1_020322-1.jpg'
+    ],
     formLink: "https://forms.google.com",
     membrosIds: [
-      "0f37555a5eb55c8e85a12465e2f445c1"
+      "9b757ac5b62e517b89df00340964c957"
     ],
   },
   {
     titulo: "Explorando Saber",
     resumo: "desenvolvimento de plataforma de ensino para alunos do Ensino Médio",
     descricaoCompleta: "...",
-    fotos: [`https://placehold.co/800x500/${get_project_color('ES')}/ffffff?text=Explorando+Saber`],
+    fotos: [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAFPBvUaihOm1rMzSlyAv6Y5HQxFde2H8-1ZfrsIGgvA&s=10'
+    ],
     formLink: "https://forms.google.com",
     membrosIds: [
-      "e037a53172985e4b8a2a5c82c0000691", 
-      "97c4ea383b905a97bc5b55a969b11773"
+      "2ae844348b325184a581c70829af2a6c", 
+      "b6d14e334d3f5a509d596c212ad37e44"
     ],
   },
 ];

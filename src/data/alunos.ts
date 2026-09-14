@@ -39,7 +39,7 @@ export const alunos_sem_id: MembroEquipeSemId[] = [
     cargo: "Desenvolvedor voluntário",
     categoria: "aluno",
     foto: `https://placehold.co/200x200/${get_student_color('ME')}/ffffff?text=ME`,
-    redesSociais: { linkedin: "https://linkedin.com", instagram: "https://instagram.com" },
+    redesSociais: { github:"https://github.com/Zoup44", instagram: "https://www.instagram.com/evangelista_zoup/" },
   },
 ];
 

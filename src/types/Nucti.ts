@@ -9,6 +9,7 @@ export interface RedesSociais {
 
 export interface MembroEquipeSemId {
   nome: string;
+  title?: 'Dr.'| 'Drª' | 'Dra'
   cargo: string;
   categoria: CategoriaMembro;
   foto: string;
@@ -18,6 +19,7 @@ export interface MembroEquipeSemId {
 export interface MembroEquipe extends MembroEquipeSemId{
   id: string;
 }
+
 export interface ProjetoSemId {
   titulo: string;
   resumo: string;
