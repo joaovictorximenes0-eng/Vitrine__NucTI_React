@@ -1,31 +1,48 @@
-import type { Projeto } from '../types/Nucti';
+import type { Projeto, ProjetoSemId } from '../types/Nucti';
+import { addIdProject } from './uuid5'
 
-export const projetos: Projeto[] = [
+const projects_colors = [
+  '#0f172a',
+  '#1e293b',
+  '#293548',
+  '#334155',
+  '#3d4d61',
+  '#475569',
+  '#52647a',
+  '#64748b',
+];
+function get_project_color(nome: string): string{
+  const relative_index = (n: number, l: number): number => n%l===0 ? n%l : (n%l)-1;
+
+  const l_formated = nome.replaceAll(' ','').toLowerCase()
+  const choiced_tone = projects_colors[relative_index(l_formated.charCodeAt(1),projects_colors.length)]
+
+  return choiced_tone.replaceAll("#",'')
+}
+
+const projetos_sem_id: ProjetoSemId[] = [
   {
-    id: "iot-campus",
-    titulo: "Sistemas Embarcados e IoT",
-    resumo: "Monitoramento ambiental e automação de salas usando ESP32 e redes de sensores.",
-    descricaoCompleta: "...",
-    fotos: ["https://placehold.co/800x500/1e293b/ffffff?text=Bancada+IoT"],
+
+    titulo: "CompetiTech",
+    resumo: "Ensino de Robótica com Robôs de Competição",
+    descricaoCompleta: "Em desenvolvimento...",
+    fotos: [`https://placehold.co/800x500/${get_project_color('CT')}/ffffff?text=CompetiTech`],
     formLink: "https://forms.google.com",
-    membrosIds: ["ricardo-silva", "carlos-eduardo", "gabriel-martins"],
+    membrosIds: [
+      "0f37555a5eb55c8e85a12465e2f445c1"
+    ],
   },
   {
-    id: "app-academico",
-    titulo: "Aplicativo de Gestão Acadêmica",
-    resumo: "Plataforma mobile para alunos acompanharem horários, eventos e avisos do núcleo.",
+    titulo: "Explorando Saber",
+    resumo: "desenvolvimento de plataforma de ensino para alunos do Ensino Médio",
     descricaoCompleta: "...",
-    fotos: ["https://placehold.co/800x500/334155/ffffff?text=Interface+Mobile"],
+    fotos: [`https://placehold.co/800x500/${get_project_color('ES')}/ffffff?text=Explorando+Saber`],
     formLink: "https://forms.google.com",
-    membrosIds: ["ana-souza", "mariana-costa"],
-  },
-  {
-    id: "ia-visao",
-    titulo: "Visão Computacional e IA",
-    resumo: "Modelos de IA para contagem de fluxo de pessoas e reconhecimento de padrões.",
-    descricaoCompleta: "...",
-    fotos: ["https://placehold.co/800x500/475569/ffffff?text=Detecção+OpenCV"],
-    formLink: "https://forms.google.com",
-    membrosIds: ["ricardo-silva", "ana-souza", "helena-castro"],
+    membrosIds: [
+      "e037a53172985e4b8a2a5c82c0000691", 
+      "97c4ea383b905a97bc5b55a969b11773"
+    ],
   },
 ];
+
+export const projetos: Projeto[] = addIdProject(projetos_sem_id)

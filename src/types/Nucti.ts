@@ -6,8 +6,8 @@ export interface RedesSociais {
   instagram?: string;
 }
 
-export interface MembroEquipe {
-  id: string;
+
+export interface MembroEquipeSemId {
   nome: string;
   cargo: string;
   categoria: CategoriaMembro;
@@ -15,12 +15,17 @@ export interface MembroEquipe {
   redesSociais?: RedesSociais;
 }
 
-export interface Projeto {
+export interface MembroEquipe extends MembroEquipeSemId{
   id: string;
+}
+export interface ProjetoSemId {
   titulo: string;
   resumo: string;
   descricaoCompleta: string;
   fotos: string[];
   formLink?: string;
   membrosIds: string[];
+}
+export interface Projeto extends ProjetoSemId{
+  id: string;
 }
