@@ -27,20 +27,6 @@ function get_prof_color(nome: string): string{
 
 const professores_sem_id: MembroEquipeSemId[] = [
   {
-    nome: "Prof. Dr. Ricardo Silva",
-    cargo: "Coordenador Geral",
-    categoria: "professor",
-    foto: `https://placehold.co/200x200/${get_prof_color('RS')}/ffffff?text=RS`,
-    redesSociais: { linkedin: "https://linkedin.com", github: "https://github.com" },
-  },
-  {
-    nome: "Profa. Dra. Helena Castro",
-    cargo: "Orientadora de IA",
-    categoria: "professor",
-    foto: `https://placehold.co/200x200/${get_prof_color('HC')}/ffffff?text=HC`,
-    redesSociais: { linkedin: "https://linkedin.com" },
-  },
-  {
     nome: "Drª Adriana Sicsú",
     cargo: "Coordenadora de CC",
     categoria: "professor",
