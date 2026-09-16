@@ -52,4 +52,4 @@ const professores_sem_id: MembroEquipeSemId[] = [
   },
 ];
 
-export const professores: MembroEquipe[] = addIdMember(professores_sem_id,true)
+export const professores: MembroEquipe[] = addIdMember(professores_sem_id,false)
