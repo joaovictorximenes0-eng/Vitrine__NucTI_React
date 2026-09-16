@@ -16,6 +16,14 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
+  opacity: 100;
+  transition: .125s opacity;
+}
+.image_background{
+  background-color: #1e293b;
+}
+.image_transition {
+  opacity: 0;
 }
 
 .body {

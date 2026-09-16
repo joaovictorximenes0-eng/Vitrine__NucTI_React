@@ -12,7 +12,8 @@ const wait = (milissegundos: number): Promise<void> => {
 
 export default function ProjectCard({ projeto }: ProjectCardProps) {
   const [actuaImg, setActualImg] = useState<number>(0);
-  
+  const [changingImg, setChangingImg] = useState<boolean>(false);
+
   useEffect(() => {
     let enabled = true
     async function changeImg() {
@@ -21,7 +22,11 @@ export default function ProjectCard({ projeto }: ProjectCardProps) {
         console.log("a")
         await wait((Math.random()*6000)+4000)
         i = i+1 >= projeto.fotos.length ? 0 : i+1;
+        setChangingImg(true)
+        await wait(125)
         setActualImg(i);
+        await wait(125)
+        setChangingImg(false)
       }
     }
 
@@ -33,11 +38,13 @@ export default function ProjectCard({ projeto }: ProjectCardProps) {
 
   return (
     <article className={styles.card}>
-      <img 
-        alt={projeto.titulo} 
-        className={styles.image} 
-        src={projeto.fotos[actuaImg]} 
-      />
+      <div className={styles.image_background}>
+        <img 
+          alt={projeto.titulo} 
+          className={`${styles.image} ${changingImg && styles.image_transition}`}
+          src={projeto.fotos[actuaImg]} 
+        />
+      </div>
       <div className={styles.body}>
         <h3 className={styles.title}>{projeto.titulo}</h3>
         <p className={styles.description}>{projeto.resumo}</p>
