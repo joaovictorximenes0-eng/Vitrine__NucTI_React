@@ -27,26 +27,29 @@ function get_prof_color(nome: string): string{
 
 const professores_sem_id: MembroEquipeSemId[] = [
   {
-    nome: "Drª Adriana Sicsú",
+    nome: "Adriana Sicsú",
+    title:"Drª",
     cargo: "Coordenadora de CC",
     categoria: "professor",
     foto: `https://placehold.co/200x200/${get_prof_color('AS')}/ffffff?text=AS`,
     redesSociais: { linkedin: "https://linkedin.com" },
   },
   {
-    nome: "Dr. Carlos Sicsú",
+    nome: "Carlos Sicsú",
+    title:"Dr.",
     cargo: "Coordenador de TADS",
     categoria: "professor",
     foto: `https://placehold.co/200x200/${get_prof_color('CS')}/ffffff?text=CS`,
     redesSociais: { linkedin: "https://linkedin.com" },
   },
   {
-    nome: "Dr. Maximiano Correia",
-    cargo: "",
+    nome: "Maximiano Correia",
+    title: "Dr.",
+    cargo: "Professor",
     categoria: "professor",
     foto: `https://placehold.co/200x200/${get_prof_color('MC')}/ffffff?text=MC`,
     redesSociais: { linkedin: "https://linkedin.com" },
   },
 ];
 
-export const professores: MembroEquipe[] = addIdMember(professores_sem_id,true)
+export const professores: MembroEquipe[] = addIdMember(professores_sem_id,false)

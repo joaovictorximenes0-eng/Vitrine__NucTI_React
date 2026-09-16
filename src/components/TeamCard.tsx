@@ -49,7 +49,7 @@ export default function TeamCard({ membro, isFilterActive, onFilterClick }: Team
 
       {/* Área inferior */}
       <div className={styles.textContainer}>
-        <h4 className={styles.name}>{membro.nome}</h4>
+        <h4 className={styles.name}>{membro.title ? membro.title+' ' : ''}{membro.nome}</h4>
         <span className={styles.role}>{membro.cargo}</span>
         
         {/* Novo botão de Filtro SVG */}
