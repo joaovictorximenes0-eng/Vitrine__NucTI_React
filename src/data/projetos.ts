@@ -46,8 +46,8 @@ const projetos_sem_id: ProjetoSemId[] = [
     ],
     formLink: "https://forms.google.com",
     membrosIds: [
-      "2ae844348b325184a581c70829af2a6c", 
-      "b6d14e334d3f5a509d596c212ad37e44"
+      "2ae844348b325184a581c70829af2a6c",
+      "5841edbaf6085b1aab8fec760411d3e9"
     ],
   },
 ];

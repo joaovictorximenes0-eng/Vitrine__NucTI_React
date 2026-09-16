@@ -19,14 +19,13 @@ export default function ProjectCard({ projeto }: ProjectCardProps) {
     async function changeImg() {
       let i = 0;
       while (enabled && projeto.fotos.length > 1){
-        console.log("a")
         await wait((Math.random()*6000)+4000)
         i = i+1 >= projeto.fotos.length ? 0 : i+1;
         setChangingImg(true)
         await wait(125)
         setActualImg(i);
-        await wait(125)
         setChangingImg(false)
+        await wait(125)
       }
     }
 
