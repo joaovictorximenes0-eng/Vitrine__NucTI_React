@@ -1,0 +1,74 @@
+/* Pop UP PC */
+.overlay {
+  position: static;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  right: -140px;
+  transform: translateY(-50%);
+  width: 140px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  text-align: center;
+  z-index: 10;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #0056b3;
+  font-size: 0.95rem;
+}
+
+.qrImage {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.closeButton:hover {
+  color: #475569;
+}
+
+/* Pop Up Mobile */
+@media (max-width: 768px) {
+  .overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.6);
+    z-index: 2000;
+    padding: 24px;
+  }
+
+  .popup {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 280px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}

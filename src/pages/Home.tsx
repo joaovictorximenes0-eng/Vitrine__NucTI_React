@@ -3,6 +3,7 @@ import { siteContent } from '../data/content';
 import type { MembroEquipe } from '../types/Nucti';
 import TeamCard from '../components/TeamCard';
 import ProjectCarousel from '../components/ProjectCarousel';
+import QrCodePopup from '../components/home/QrCodePopup';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
         </div>
         <div className={styles.heroImageWrapper}>
           <img src={siteContent.quemSomos.imagem} alt="Espaço NucTI" className={styles.heroImage} />
+          <QrCodePopup />
         </div>
       </section>
 
