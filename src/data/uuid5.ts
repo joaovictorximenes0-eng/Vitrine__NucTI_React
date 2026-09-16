@@ -18,11 +18,12 @@ export function addIdMember(memberlist: MembroEquipeSemId[], showIds=false): Mem
         const fl_code2 = nameLetterToCode(name_array,'second',0)
         const sl_code1 = nameLetterToCode(name_array,'first',1)
         const sl_code2 = nameLetterToCode(name_array,'second',1)
+        const size_code = name_array[0].length.toString()
 
         /** Primeira e segunda letra do nome 1 junto com a primeira e segunda letra do nome 2 
          *  formam o código para gerar o ID*/
 
-        const genereted_id = genId(fl_code1+fl_code2+sl_code1+sl_code2).replaceAll('-','')
+        const genereted_id = genId(fl_code1+fl_code2+sl_code1+sl_code2+size_code).replaceAll('-','')
         if(showIds) console.log(`${member.nome} - Id gerado: ${genereted_id}`);
         return {
             ...member,

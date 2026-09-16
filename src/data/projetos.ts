@@ -33,7 +33,7 @@ const projetos_sem_id: ProjetoSemId[] = [
     ],
     formLink: "https://forms.google.com",
     membrosIds: [
-      "9b757ac5b62e517b89df00340964c957"
+      "ae8d2a4ec40057cc8208ae366168d0bb"
     ],
   },
   {
@@ -46,8 +46,8 @@ const projetos_sem_id: ProjetoSemId[] = [
     ],
     formLink: "https://forms.google.com",
     membrosIds: [
-      "2ae844348b325184a581c70829af2a6c",
-      "5841edbaf6085b1aab8fec760411d3e9"
+      "5fe00073f4f95170989b68b88afb0c32",
+      "d075e66b4b345a80b411123485dace44"
     ],
   },
 ];
